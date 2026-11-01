@@ -1,6 +1,6 @@
 # horizontal-spinbox
 
-![Example](https://imgur.com/a/I78NGq9)
+![Example](https://i.imgur.com/FvMB3FU.jpeg)
 
 Touch/mobile/VR friendly horizontal spin box for Godot
 
