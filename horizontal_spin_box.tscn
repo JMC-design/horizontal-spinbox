@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bgn2fhh5lv6ry"]
+
+[ext_resource type="Script" uid="uid://bl8po76dvvulb" path="res://addons/life/horizontal-spinbox/horizontal_spin_box.gd" id="1_47ndo"]
+[ext_resource type="Theme" uid="uid://blaf2h6qalrkr" path="res://addons/life/horizontal-spinbox/hsb_theme.tres" id="1_lb4g7"]
+
+[node name="HorizontalSpinBox" type="PanelContainer" unique_id=1628530157]
+process_mode = 3
+light_mask = 0
+clip_contents = true
+anchors_preset = -1
+anchor_right = 0.102000006
+anchor_bottom = 0.046000004
+offset_left = 1.0
+offset_top = -7.896002
+offset_right = 28.80001
+offset_bottom = 7.295994
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_lb4g7")
+script = ExtResource("1_47ndo")
+text = "default"
+value = 0
+step = 1.0
+send_value = false
+text_colour = Color(0.2492879, 0.7166583, 0.6584965, 1)
+value_colour = Color(0.4637956, 0.936538, 0.8707413, 1)
+button_font_size = 24
+font_size = 23
+button_colour = Color(0.047058824, 0.09019608, 0.10980392, 1)
+button_pressed_colour = Color(0.2940275, 0.42924446, 0.49108976, 1)
+hover_colour_button = Color(0.12459447, 0.19959494, 0.23371643, 1)
+icon_colour = Color(0.016866911, 0.20169836, 0.21479717, 1)
+icon_pressed_colour = Color(0.32941177, 0.8509804, 0.78431374, 1)
+icon_hover_colour = Color(0.031199992, 0.36607993, 0.39, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=815674713]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1437237433]
+light_mask = 0
+z_index = 2
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1144711796]
+light_mask = 0
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "default"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MarginContainer/HBoxContainer" unique_id=666903898]
+light_mask = 0
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.4637956, 0.936538, 0.8707413, 1)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=863736400]
+light_mask = 0
+layout_mode = 2
+focus_mode = 2
+focus_behavior_recursive = 2
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 0
+
+[node name="MinusButton" type="Button" parent="Buttons" unique_id=551693881]
+light_mask = 0
+z_index = 1
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../PlusButton")
+focus_next = NodePath("../PlusButton")
+focus_behavior_recursive = 2
+mouse_behavior_recursive = 2
+theme_override_constants/h_separation = 5
+action_mode = 0
+text = "<"
+alignment = 0
+
+[node name="PlusButton" type="Button" parent="Buttons" unique_id=1055876812]
+light_mask = 0
+z_index = 1
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../MinusButton")
+focus_previous = NodePath("../MinusButton")
+mouse_behavior_recursive = 2
+action_mode = 0
+text = ">"
+alignment = 2
+
+[connection signal="button_down" from="Buttons/MinusButton" to="." method="_on_minus_button_down"]
+[connection signal="button_up" from="Buttons/MinusButton" to="." method="_on_minus_button_up"]
+[connection signal="mouse_entered" from="Buttons/MinusButton" to="." method="_on_minus_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/MinusButton" to="." method="_on_minus_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="button_down" from="Buttons/PlusButton" to="." method="_on_plus_button_down"]
+[connection signal="button_up" from="Buttons/PlusButton" to="." method="_on_plus_button_up"]
+[connection signal="mouse_entered" from="Buttons/PlusButton" to="." method="_on_plus_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/PlusButton" to="." method="_on_plus_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/PlusButton" to="." method="_on_plus_button_pressed"]
